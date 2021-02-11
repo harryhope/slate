@@ -178,7 +178,7 @@ export const withReact = <T extends Editor>(editor: T) => {
     if (fragment) {
       const decoded = decodeURIComponent(window.atob(fragment))
       const parsed = JSON.parse(decoded) as Node[]
-      Transforms.insertFragment(e, parsed)
+      e.insertFragment(parsed)
       return
     }
 
@@ -193,7 +193,7 @@ export const withReact = <T extends Editor>(editor: T) => {
           Transforms.splitNodes(e, { always: true })
         }
 
-        Transforms.insertText(e, line)
+        e.insertText(line)
         split = true
       }
     }
